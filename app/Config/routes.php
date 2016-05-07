@@ -39,6 +39,11 @@
 	Router::connect('/sign-up', array('controller' => 'users', 'action' => 'add'));
 
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
+   // Router::connect('/about', array('controller')=>'Pages', 'action '=>'about'));
+	  
+	
+	
+   
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

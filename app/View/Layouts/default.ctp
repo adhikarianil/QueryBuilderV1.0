@@ -20,10 +20,16 @@
 </head>
 <body class="<?php echo $this->params->params['controller'].'_'.$this->params->params['action']?>">
 <!--[if lt IE 7]>
+<!-- added code for the class jumbotorn-->
+<div class="jumbotron">
+       <div id="logo"><?php echo $this->Html->link(
+			Configure::read('Application.name'),
+			AuthComponent::user('id') ? "/home" : "/"
+			, array('class' => 'navbar-brand')) ?>
+			
+   </div>
+</div>
 
-<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
-	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
-	experience this site.</p>
 <![endif]-->
 
 
@@ -33,9 +39,14 @@
 	<div class="navbar navbar-default">
                 <ul class="nav navbar-nav">
                 
-                     <li><a href="#">Tools</a></li>
-                     <li><a href="#">Support</a></li> 
-                     <li><a href="#">Help</a></li>
+                     <li><a href="">Home</a></li>
+					  <li><?= $this->Html->link('About', array('controller'=>'Pages','action'=>'about')) ?> </li>
+					 <li><a href="#">Tools</a></li>
+                     <li><?= $this->Html->link('Support', array('controller'=>'Pages','action'=>'support')) ?> </li> 
+                     <li><a href="">Help</a></li>
+					 
+					
+					 
 
                 </ul>               
              </div>

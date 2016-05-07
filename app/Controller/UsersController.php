@@ -1,5 +1,6 @@
 <?php
 class UsersController extends AppController {
+	var $components = array('RequestHandler');
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('add', 'logout', 'change_password', 'remember_password', 'remember_password_step_2');
@@ -44,9 +45,10 @@ $this->layout='user_login'; // sets the layout that will be used. if specified n
 					# Write cookie ( 30 Days )
 					$this->Cookie->write('Auth.User', $cookie, true);
 				}
+				$this->redirect('/');
 
 				# Redirect to home
-				$this->redirect($this->Auth->redirectUrl());
+				#$this->redirect($this->Auth->redirectUrl());
 				
 				
 			} else {
@@ -263,6 +265,7 @@ $this->layout='user_login'; // sets the layout that will be used. if specified n
 	
 	public function showtable($param)
 	{
+		$this->Session->write('database.select', $param);
 		$this->User->query("use $param");
 	$data=$this->User->query("show tables");
 	$this->set('data',$data);
@@ -271,10 +274,34 @@ $this->layout='user_login'; // sets the layout that will be used. if specified n
 	
 	public function listfields(){
 		$this->request->onlyAllow('Ajax');
+		$database=$this->Session->read('database.select');
+		$this->User->query("use $database");
 		$param=$this->request->data['tableid'];
-		$data=		$this->User->query("DESCRIBE $param"); // display fields of table $param holds table name
-	return $data;	
+		$data=$this->User->query("DESCRIBE $param"); // display fields of table $param holds table name
+		$this->autoRender=false;
+		$this->layout = 'ajax';
+		return json_encode($data);
 		
+		
+	}
+        public function listfieldsdata(){
+		
+		$this->request->onlyAllow('Ajax');
+                //$connection = ConnectionManager::get('default');
+		$database=$this->Session->read('database.select');
+		$this->User->query("use $database");
+		$param=$this->request->data['tableid'];
+                //$param="users";
+                //$field="id,username";
+                $field=$this->request->data['tablefield'];
+                //$data = $connection->execute('DESC test')->fetchAll('assoc');
+                
+                //$data=$this->User->query("DESCRIBE $param");
+                $data=$this->User->query("select $field from  $param"); 
+		//$data=$this->User->query("Select count(*) from users"); // display fields of table $param holds table name
+		$this->autoRender=false;
+		$this->layout = 'ajax';
+		return json_encode($data);
 		
 	}
 

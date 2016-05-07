@@ -63,16 +63,35 @@ class PagesController extends AppController {
 	{
 		$this->set('users_count', $this->User->find('count'));
 		$db = ConnectionManager::getDataSource("default"); // name of your database connection
-		$places_of_interest = $db->fetchall("show  databases"); // ..
+		$places_of_interest = $db->fetchAll("show databases"); // ..
 		$this->set('data',$places_of_interest); // stores the data into the array places of interest
 	}
 
-	
-	public function showtable()
-	{
-		//this is the function where table will list
-$tablename=$this->request->params['pass'];
-echo $tablename;exit;
-	}
 	public function maintenance(){}
+        
+        public function display()
+        {
+            
+            App::uses('ConnectionManager', 'Model');
+            $dsn = 'mysql://root:password@localhost/employee_db';
+            ConnectionManager::config('default', ['url' => $dsn]);
+            $db = ConnectionManager::getDataSource("default");
+           // $data = $db->fetchAll("show databases"); 
+            $data = $db->execute('SELECT * FROM employee_master')->fetchAll('assoc');
+            $this->set('data',$data);
+            
+        }
+		
+		public function about(){
+			$this->layout="default";
+		}
+		 
+		public function support(){
+			$this->layout="default";
+		}
+		
+		public function tools(){
+			$this->layout="default";
+		}
+		
 }

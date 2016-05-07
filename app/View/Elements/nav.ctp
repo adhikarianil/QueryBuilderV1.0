@@ -1,18 +1,23 @@
 <?php if(!Configure::read('Application.maintenance')){?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
+	
+	
 	<div class="navbar-header">
+		
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 			<span class="sr-only">Toggle navigation</span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<?php echo $this->Html->link(
+		
+	</div>
+	<?php echo $this->Html->link(
 			Configure::read('Application.name'),
 			AuthComponent::user('id') ? "/home" : "/"
 			, array('class' => 'navbar-brand')) ?>
-	</div>
+	
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,6 +41,10 @@
 					<ul class="dropdown-menu">
 						<?php
 						$i=0;
+						$db = ConnectionManager::getDataSource("default");
+                                                 
+            //var_dump($this->$data);
+            $data = $db->fetchall("show  databases"); 
 						foreach ($data as $value) {
 							$param= $value["SCHEMATA"]["Database"];
 

@@ -67,3 +67,4 @@ Configure::write('Config.language', 'por');
 
 Have a question or found a bug? Please create an issue [here][] on GitHub!
 [here]: https://github.com/hugodias/cakestrap/issues
+"# querybuilder" 

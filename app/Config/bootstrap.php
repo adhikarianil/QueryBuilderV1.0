@@ -147,7 +147,7 @@ Cache::config('default', array('engine' => 'File'));
     'bootstrap' => true,
     'routes' => true
     )));*/
-
+CakePlugin::load('ChartJs', ['bootstrap' => false, 'routes' => false]);
 if (!Configure::read('Application.status')) {
 	Configure::write(
 		'Application', array(
@@ -156,6 +156,7 @@ if (!Configure::read('Application.status')) {
 		)
 	);
 	CakePlugin::load('Install', array('routes' => true));
+        
 }
 
 /**

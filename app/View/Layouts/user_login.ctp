@@ -13,12 +13,21 @@
    <!-- creating the header of the file-->
    <div class="container-fluid">
    <div class="jumbotron">
-        <div id="logo"> <img  id="logo"  alt= "Beyond Teaching " src="/cake_querybuilder/app/webroot/img/logo.png" height="100px" width="90px"></div>
-    </div>
+       <div id="logo"><?php echo $this->Html->link(
+			Configure::read('Application.name'),
+			AuthComponent::user('id') ? "/home" : "/"
+			, array('class' => 'navbar-brand')) ?>
+			
+   </div>
+	    <!--<div id="logo"> <img  id="logo"  alt= "Beyond Teaching " src="/cake_querybuilder/app/webroot/img/logo.png" height="100px" width="90px"></div> -->
+		  
+   </div>
    <div class="navbar navbar-default">
-                <ul class="nav navbar-nav">
+               
+			    <ul class="nav navbar-nav">
                     
-                     <li><a href="#">Home</a></li>
+                     
+					 <li><a href="#">Home</a></li>
                      <li><a href="#">Support</a></li> 
                      <li><a href="#">About</a></li>
 
@@ -56,8 +65,9 @@ box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);">
    
         <div class="footer">
       <div class="container">
-        <p class="text-muted credit">Query Builder Version 1 <a href="http://martinbean.co.uk">Team Binary Websoft</a>.</p>
+        <p class="text-muted credit">Query Builder Version 1 <a href="www.techchauari.com/cake_querybuilder">Team Binary Websoft</a>.</p>
       </div>
+	  
     </div>
     </div>
     </body>

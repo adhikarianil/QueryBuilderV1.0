@@ -20,6 +20,7 @@
 </head>
 <body class="<?php echo $this->params->params['controller'].'_'.$this->params->params['action']?>">
 <!--[if lt IE 7]>
+
 <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
 	today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
 	experience this site.</p>
@@ -28,7 +29,7 @@
 
 <div id="wrapper">
 
-	<?php echo $this->element('nav')?>
+	\
 
 	<div id="page-wrapper">
 
@@ -36,28 +37,20 @@
 		<?php echo $this->fetch('content'); ?>
 
 	</div>
+	<div>
+		<h4>About Query Builder</h4>
+		<br>Query Builder is an analytical Tools developed for the organization Beyond Teaching.  The application was developed as studnet project by student of ATMC.
+			The application expected to be completed on the month of june.
+			Kinds Rgards
+			Development Team. 
+	</div>
 	<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?php echo $this->params->webroot ?>js/lib/jquery.min.js"><\/script>')</script>
-<?php echo $this->Html->script(array('lib/bootstrap.min', 'src/scripts.js')); ?>
-<?php echo $this->CakeStrap->automaticScript(); ?>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-	var _gaq = [
-		['_setAccount', 'UA-XXXXX-X'],
-		['_trackPageview']
-	];
-	(function (d, t) {
-		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-		g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g, s)
-	}(document, 'script'));
-</script>
+
 </body>
 </html>

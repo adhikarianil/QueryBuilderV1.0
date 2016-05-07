@@ -1,9 +1,8 @@
 
-
 <div class="row">
 	  	
 	<div class="col-lg-12">
-		
+		<h1> Admin Dashboard <small></small></h1>
 		<ol class="breadcrumb">
 			<li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
 		</ol>
@@ -14,10 +13,10 @@
 	</div>
 </div><!-- /.row -->
 
-<!---<<div class="row">
+<div class="row">
 	<div class="col-lg-3">
 		<div class="panel panel-info">
-		<!---<	<div class="panel-heading">
+			<div class="panel-heading">
 				<div class="row">
 					<div class="col-xs-6">
 						<i class="fa fa-users fa-5x"></i>
@@ -29,8 +28,8 @@
 				</div>
 			</div>
 			<a href="<?php echo $this->params->webroot?>users">
-				<!---<<div class="panel-footer announcement-bottom">
-					<!---<<div class="row">
+				<div class="panel-footer announcement-bottom">
+					<div class="row">
 						<div class="col-xs-6">
 							View users
 						</div>
@@ -42,9 +41,9 @@
 			</a>
 		</div>
 	</div>
-	div class="col-lg-3">
+	<div class="col-lg-3">
 		<div class="panel panel-warning">
-			<div class="panel-heading">
+			<!---<div class="panel-heading">
 				<div class="row">
 					<div class="col-xs-6">
 						<i class="fa fa-check fa-5x"></i>
